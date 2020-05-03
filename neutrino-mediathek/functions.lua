@@ -153,6 +153,15 @@ function playMovie(url, title, info1, info2, enableMovieInfo)
 	end
 end -- function playMovie
 
+function rename_channel_name(_string)
+	if _string == nil then return _string end
+	_string = string.gsub(_string,"ARTE.DE","arte HD");
+	_string = string.gsub(_string,"BR","BR Fernsehen Nord HD");
+	_string = string.gsub(_string,"ZDF","ZDF HD");
+	return _string
+end
+
+
 function downloadMovie(url, channel, title, description, theme, duration, date, time)
 	local function constructXMLFile(channel, title, description, theme, duration, date, time, downloadQuality)
 		local function escape(s, w)
@@ -169,7 +178,7 @@ function downloadMovie(url, channel, title, description, theme, duration, date, 
 		xml[1]	= '<?xml version="1.0" encoding="UTF-8"?>'	-- no NLS
 		xml[2]	= '<neutrino commandversion="1">'	-- no NLS
 		xml[3]	= '	<record command="record">'	-- no NLS
-		xml[4]	= '		<channelname>' .. channel .. '</channelname>'	-- no NLS
+		xml[4]	= '		<channelname>' .. rename_channel_name(channel) .. '</channelname>'	-- no NLS
 		xml[5]	= '		<epgtitle>' .. title .. '</epgtitle>'	-- no NLS
 		xml[6]	= '		<id>0</id>'	-- no NLS
 		xml[7]	= '		<info1>' .. description .. '</info1>'	-- no NLS

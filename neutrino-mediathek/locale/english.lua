@@ -46,7 +46,7 @@ l.networkFullH			= "Shall full debug information be stored?"
 l.networkProgress		= "Download Progress"
 l.networkProgressH		= "Shall download progress be shown?"
 
-l.versionHeader			= "Info"
+l.versionHeader			= "Version Information"
 l.formatVersion			= "Plugin v%s\n \nDatabase\nVersion: %s (Update %s)\n \nDatabase MediathekView => Neutrino Mediathek\n%s (%s)\n \nServer API\n%s (%s)\n \nDatabase MediathekView:\n%s\n%d Entries (dated as of %s)"
 
 l.formatAllTitles		= "[All titles]"
@@ -146,5 +146,5 @@ l.statusDLSpace			= "Disk Space Overview ..."
 
 l.startMediathek		= "Start Mediathek"
 l.settings			= "Settings"
-l.versioninfo			= "Info"
+l.versioninfo			= "Version Information"
 l.exitProgram			= "Exit Program"
