@@ -44,11 +44,11 @@ M	= misc.new()
 FH	= filehelpers.new()
 C	= curl.new()
 J	= loadLuaLib('json')		-- no NLS
-G	= loadLuaLib(script_path() .. 'neutrino-mediathek/n_gui')	-- no NLS
+G	= loadLuaLib(script_path() .. 'neutrino-mediathek/n_gui')		-- no NLS
 H	= loadLuaLib(script_path() .. 'neutrino-mediathek/n_helpers')	-- no NLS
 
 -- define global paths
-pluginScriptPath = H.scriptPath() .. '/' .. H.scriptBase()	        -- no NLS
+pluginScriptPath = H.scriptPath() .. '/' .. H.scriptBase()	-- no NLS
 pluginTmpPath    = '/tmp/' .. H.scriptBase()	-- no NLS
 confFile         = '/var/tuxbox/config/' .. H.scriptBase() .. '.conf'	-- no NLS
 FH:rmdir(pluginTmpPath)
