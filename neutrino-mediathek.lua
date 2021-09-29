@@ -12,6 +12,12 @@
 -- v 0.4 beta 4:	2020-04-05			Author: BPanther / fritz
 --			fix m3u8 play and download as mp4, changes for DDT Images
 --
+--Eigenen Pfad ermitteln
+function script_path()
+	local str = debug.getinfo(2, "S").source:sub(2)
+	return str:match("(.*/)")
+end
+
 N = neutrino(0, 0, SCREEN.X_RES, SCREEN.Y_RES)
 -- check lua api version
 local req_major = 1
@@ -38,11 +44,11 @@ M	= misc.new()
 FH	= filehelpers.new()
 C	= curl.new()
 J	= loadLuaLib('json')		-- no NLS
-G	= loadLuaLib('/var/tuxbox/plugins/neutrino-mediathek/n_gui')		-- no NLS
-H	= loadLuaLib('/var/tuxbox/plugins/neutrino-mediathek/n_helpers')	-- no NLS
+G	= loadLuaLib(script_path() .. 'neutrino-mediathek/n_gui')	-- no NLS
+H	= loadLuaLib(script_path() .. 'neutrino-mediathek/n_helpers')	-- no NLS
 
 -- define global paths
-pluginScriptPath = H.scriptPath() .. '/' .. H.scriptBase()	-- no NLS
+pluginScriptPath = H.scriptPath() .. '/' .. H.scriptBase()	        -- no NLS
 pluginTmpPath    = '/tmp/' .. H.scriptBase()	-- no NLS
 confFile         = '/var/tuxbox/config/' .. H.scriptBase() .. '.conf'	-- no NLS
 FH:rmdir(pluginTmpPath)
