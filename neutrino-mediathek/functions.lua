@@ -284,8 +284,7 @@ function downloadMovie(url, channel, title, description, theme, duration, date, 
 			local durationInMinutes = tostring(tonumber(string.sub(duration, 1, 2)) * 60 + tonumber(string.sub(duration, 4, 5)) + 1)
 			local tagsXML = constructXMLFile(channel, title, description, theme, durationInMinutes, date, time, conf.downloadQuality)
 			os.execute('echo \'' .. tagsXML .. '\' > ' .. fileXML)
---			local wgetCMD = 'ffmpeg -y -user-agent \"Mozilla/5.0\" -i \"' .. url.. '\" -bsf:a aac_adtstoasc -vcodec copy -c copy \"' .. fileMP4 .. '\"' -- with older ffmpeg than Version 4
-			local wgetCMD = 'ffmpeg -y -user_agent \"Mozilla/5.0\" -i \"' .. url.. '\" -bsf:a aac_adtstoasc -vcodec copy -c copy \"' .. fileMP4 .. '\"' -- with newer ffmpeg than Version 4
+			local wgetCMD = 'ffmpeg -y -user-agent \"Mozilla/5.0\" -i \"' .. url.. '\" -bsf:a aac_adtstoasc -vcodec copy -c copy \"' .. fileMP4 .. '\"' -- with older ffmpeg than Version 4
 			os.execute(wgetCMD)
 		else
 			paintAnInfoBoxAndWait(l.statusDLNot, WHERE.CENTER, conf.guiTimeMsg)
