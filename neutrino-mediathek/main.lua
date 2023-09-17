@@ -149,6 +149,7 @@ function afterStop()
 	M:setVolume(volumeNeutrino)
 
 	V:StopPicture()
+	os.execute("rm -r /tmp/neutrino-mediathek"); -- Deactivating the entry prevents the temporary folder “tmp/neutrino-mediathek” from being deleted after the plugin has been closed.
 
 --	if timerThread ~= nil then
 --		local ok = timerThread:cancel()
